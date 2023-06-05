@@ -13,14 +13,14 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .black
         title = post?.title
 
         let barButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(openInfoButton(_:)))
-
+        
         navigationItem.leftBarButtonItem = barButtonItem
     }
 

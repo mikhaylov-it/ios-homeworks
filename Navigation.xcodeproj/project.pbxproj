@@ -94,9 +94,8 @@
 		DDAE550B2A2DC78600CD02C8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DDAE550C2A2DC7C000CD02C8 /* Profile */,
-				DD139BD92A28B8D900628550 /* ProfileViewController.swift */,
 				DDAE55042A2B5DD200CD02C8 /* Feed */,
+				DDAE550C2A2DC7C000CD02C8 /* Profile */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -104,6 +103,7 @@
 		DDAE550C2A2DC7C000CD02C8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DD139BD92A28B8D900628550 /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

@@ -12,9 +12,13 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .black
 
-        let alertButton = UIButton(frame:   CGRect(x: 140, y: 200, width: 100, height: 10))
+        let alertButton = UIButton(frame:   CGRect(
+            x: 140,
+            y: 200,
+            width: 100,
+            height: 10))
         alertButton.setTitle("To Alert", for: .normal)
         alertButton.addTarget(self, action: #selector(showAlert(_:)), for: .touchUpInside)
         view.addSubview(alertButton)

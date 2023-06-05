@@ -18,18 +18,13 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .darkGray
-        navigationItem.title = "Feed"
+        view.backgroundColor = .black
 
-        var tabBarItem = UITabBarItem()
-        tabBarItem = UITabBarItem(
-            tabBarSystemItem: .favorites,
-            tag: 0)
-        tabBarItem.title = "Feed"
-        self.tabBarItem = tabBarItem
-
-        let button = UIButton(frame: CGRect(x: 140, y: 200, width: 100, height: 10))
+        let button = UIButton(frame: CGRect(x: 150, y: 200, width: 80, height: 24))
         button.setTitle("К посту", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 12
         view.addSubview(button)
         button.addTarget(
             self,
