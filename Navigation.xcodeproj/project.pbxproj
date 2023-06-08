@@ -12,6 +12,7 @@
 		DD139BDA2A28B8D900628550 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD139BD92A28B8D900628550 /* ProfileViewController.swift */; };
 		DD139BE22A28B8DB00628550 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD139BE02A28B8DB00628550 /* LaunchScreen.storyboard */; };
 		DD139BEA2A28B96800628550 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DD139BE92A28B96800628550 /* .gitignore */; };
+		DDA2C1D22A2F519A00218BA7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2C1D12A2F519A00218BA7 /* Post.swift */; };
 		DDAE54FF2A2A0B7700CD02C8 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDAE54FE2A2A0B7700CD02C8 /* Image.xcassets */; };
 		DDAE55012A2B413200CD02C8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE55002A2B413200CD02C8 /* FeedViewController.swift */; };
 		DDAE55032A2B535900CD02C8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE55022A2B535900CD02C8 /* PostViewController.swift */; };
@@ -26,6 +27,7 @@
 		DD139BE12A28B8DB00628550 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD139BE32A28B8DB00628550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD139BE92A28B96800628550 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DDA2C1D12A2F519A00218BA7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DDAE54FE2A2A0B7700CD02C8 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		DDAE55002A2B413200CD02C8 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		DDAE55022A2B535900CD02C8 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -73,47 +75,16 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		DDAE55042A2B5DD200CD02C8 /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				DDAE55002A2B413200CD02C8 /* FeedViewController.swift */,
-				DDAE55052A2B5DE900CD02C8 /* Post */,
-			);
-			path = Feed;
-			sourceTree = "<group>";
-		};
-		DDAE55052A2B5DE900CD02C8 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				DDAE55022A2B535900CD02C8 /* PostViewController.swift */,
-				DDAE550D2A2DCACA00CD02C8 /* Info */,
-			);
-			path = Post;
-			sourceTree = "<group>";
-		};
 		DDAE550B2A2DC78600CD02C8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DDAE55042A2B5DD200CD02C8 /* Feed */,
-				DDAE550C2A2DC7C000CD02C8 /* Profile */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		DDAE550C2A2DC7C000CD02C8 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
+				DDAE55002A2B413200CD02C8 /* FeedViewController.swift */,
+				DDAE55022A2B535900CD02C8 /* PostViewController.swift */,
+				DDA2C1D12A2F519A00218BA7 /* Post.swift */,
+				DDAE550E2A2DCAE600CD02C8 /* InfoViewController.swift */,
 				DD139BD92A28B8D900628550 /* ProfileViewController.swift */,
 			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		DDAE550D2A2DCACA00CD02C8 /* Info */ = {
-			isa = PBXGroup;
-			children = (
-				DDAE550E2A2DCAE600CD02C8 /* InfoViewController.swift */,
-			);
-			path = Info;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +163,7 @@
 				DDAE55012A2B413200CD02C8 /* FeedViewController.swift in Sources */,
 				DD139BD82A28B8D900628550 /* SceneDelegate.swift in Sources */,
 				DDAE550F2A2DCAE600CD02C8 /* InfoViewController.swift in Sources */,
+				DDA2C1D22A2F519A00218BA7 /* Post.swift in Sources */,
 				DDAE55032A2B535900CD02C8 /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
