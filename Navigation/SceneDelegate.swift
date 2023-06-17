@@ -22,13 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         feedViewController = FeedViewController()
         feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(named: "FeedImage"), tag: 0)
 
-
         profileViewController = ProfileViewController()
         profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "ProfileImage"), tag: 1)
 
         
         tabBarViewController = UITabBarController()
         tabBarViewController.tabBar.tintColor = .red
+        tabBarViewController.tabBar.backgroundColor = .white
+
         let controllers = [feedViewController, profileViewController]
         tabBarViewController.viewControllers = controllers.map {
             UINavigationController(rootViewController: $0)

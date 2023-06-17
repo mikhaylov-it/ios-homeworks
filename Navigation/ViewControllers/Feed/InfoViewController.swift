@@ -12,12 +12,12 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
 
         var alertButton: UIButton {
             let button = UIButton()
             button.frame = CGRect(x: 0, y: 40, width: 380, height: 40)
-            button.backgroundColor = .red
+            button.backgroundColor = .systemRed
             button.setTitle("Bring out the alarm", for: .normal)
             button.setTitleColor(.black, for: .normal)
             button.addTarget(self, action: #selector(showAlert(_:)), for: .touchUpInside)

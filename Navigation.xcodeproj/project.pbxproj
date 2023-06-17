@@ -12,6 +12,7 @@
 		DD139BDA2A28B8D900628550 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD139BD92A28B8D900628550 /* ProfileViewController.swift */; };
 		DD139BE22A28B8DB00628550 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD139BE02A28B8DB00628550 /* LaunchScreen.storyboard */; };
 		DD139BEA2A28B96800628550 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DD139BE92A28B96800628550 /* .gitignore */; };
+		DD453E682A39982400FEC9B1 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD453E672A39982400FEC9B1 /* ProfileHeaderView.swift */; };
 		DDA2C1D22A2F519A00218BA7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2C1D12A2F519A00218BA7 /* Post.swift */; };
 		DDAE54FF2A2A0B7700CD02C8 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDAE54FE2A2A0B7700CD02C8 /* Image.xcassets */; };
 		DDAE55012A2B413200CD02C8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE55002A2B413200CD02C8 /* FeedViewController.swift */; };
@@ -27,6 +28,7 @@
 		DD139BE12A28B8DB00628550 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD139BE32A28B8DB00628550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD139BE92A28B96800628550 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DD453E672A39982400FEC9B1 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		DDA2C1D12A2F519A00218BA7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DDAE54FE2A2A0B7700CD02C8 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		DDAE55002A2B413200CD02C8 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -75,14 +77,31 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		DDAE550B2A2DC78600CD02C8 /* ViewControllers */ = {
+		DD453E652A39934C00FEC9B1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DD139BD92A28B8D900628550 /* ProfileViewController.swift */,
+				DD453E672A39982400FEC9B1 /* ProfileHeaderView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		DD453E662A39935A00FEC9B1 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				DDAE55002A2B413200CD02C8 /* FeedViewController.swift */,
 				DDAE55022A2B535900CD02C8 /* PostViewController.swift */,
 				DDA2C1D12A2F519A00218BA7 /* Post.swift */,
 				DDAE550E2A2DCAE600CD02C8 /* InfoViewController.swift */,
-				DD139BD92A28B8D900628550 /* ProfileViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		DDAE550B2A2DC78600CD02C8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD453E662A39935A00FEC9B1 /* Feed */,
+				DD453E652A39934C00FEC9B1 /* Profile */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -165,6 +184,7 @@
 				DDAE550F2A2DCAE600CD02C8 /* InfoViewController.swift in Sources */,
 				DDA2C1D22A2F519A00218BA7 /* Post.swift in Sources */,
 				DDAE55032A2B535900CD02C8 /* PostViewController.swift in Sources */,
+				DD453E682A39982400FEC9B1 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
