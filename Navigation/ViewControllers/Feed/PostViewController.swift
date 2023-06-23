@@ -17,13 +17,13 @@ class PostViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
         title = post?.title
 
-        lazy var addBarButtomItem: UIBarButtonItem = {
+        lazy var barButtomItem: UIBarButtonItem = {
             let barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInfoButton(_:)))
             barButtonItem.tintColor = .red
             return barButtonItem
         }()
         
-        navigationItem.leftBarButtonItem = addBarButtomItem
+        navigationItem.leftBarButtonItem = barButtomItem
     }
 
     @objc func openInfoButton(_: UIButton) {
