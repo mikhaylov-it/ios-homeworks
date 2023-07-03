@@ -9,9 +9,9 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    let profileHeaderView = ProfileHeaderView()
+    private let profileHeaderView = ProfileHeaderView()
 
-    lazy var somethingBottomButton: UIButton = {
+    private lazy var somethingBottomButton: UIButton = {
         let button = UIButton()
         button.setTitle("Tap me", for: .normal)
         button.backgroundColor = .red
@@ -23,15 +23,15 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        view.backgroundColor = .white
         view.addSubviews(profileHeaderView, somethingBottomButton)
-        addConstraints()
+        setConstraints()
 
 
         profileHeaderView.frame = view.frame
     }
 
-    private func addConstraints() {
+    private func setConstraints() {
         NSLayoutConstraint.activate([
             profileHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
             profileHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),

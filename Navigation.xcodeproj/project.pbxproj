@@ -105,9 +105,9 @@
 		DDAE550B2A2DC78600CD02C8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD12DB822A45F5DB00BCFDDF /* UIViewExtansion.swift */,
 				DD453E662A39935A00FEC9B1 /* Feed */,
 				DD453E652A39934C00FEC9B1 /* Profile */,
-				DD12DB822A45F5DB00BCFDDF /* UIViewExtansion.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

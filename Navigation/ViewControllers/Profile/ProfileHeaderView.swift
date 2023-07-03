@@ -11,7 +11,7 @@ class ProfileHeaderView: UIView {
 
     lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        let catImage = UIImage(named: "cat")
+        let catAvatarImage = UIImage(named: "cat")
 
         imageView.layer.cornerRadius = 150 / 2
         imageView.clipsToBounds = true
@@ -19,7 +19,7 @@ class ProfileHeaderView: UIView {
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
 
-        imageView.image = catImage
+        imageView.image = catAvatarImage
         imageView.toAutoLayout()
 
         return imageView
@@ -79,8 +79,8 @@ class ProfileHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviewsOnProfileHeaderView()
-        addConstraints()
+        initViews()
+        setConstraints()
 
     }
 
@@ -99,7 +99,7 @@ class ProfileHeaderView: UIView {
 
     }
 
-    private func addSubviewsOnProfileHeaderView() {
+    private func initViews() {
         addSubviews(avatarImageView,
                     fullNameLabel,
                     statusLabel,
@@ -107,7 +107,7 @@ class ProfileHeaderView: UIView {
                     setStatusButton)
     }
 
-    private func addConstraints() {
+    private func setConstraints() {
         NSLayoutConstraint.activate([
 
                 avatarImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),

@@ -13,12 +13,12 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        view.backgroundColor = .white
 
         lazy var postView: UIView = {
             let post = UIView()
             post.frame = CGRect(x: 20, y: 50, width: 330, height: 100)
-            post.layer.backgroundColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+            post.layer.backgroundColor = UIColor.white.cgColor
             post.layer.borderWidth = 2
 
             return post
@@ -34,7 +34,7 @@ class FeedViewController: UIViewController {
 
         let someStackView: UIStackView = {
             let stackView = UIStackView()
-            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.toAutoLayout()
             stackView.axis = .vertical
             stackView.distribution = .fillEqually
 
@@ -42,7 +42,8 @@ class FeedViewController: UIViewController {
                 let button = UIButton()
                 button.setTitle("First Tap", for: .normal)
                 button.setTitleColor(.black, for: .normal)
-                stackView.translatesAutoresizingMaskIntoConstraints = false
+                button.backgroundColor = .green
+                stackView.toAutoLayout()
                 button.addTarget(self, action: #selector(openPostButton), for: .touchUpInside)
                 return button
             }()
@@ -51,28 +52,27 @@ class FeedViewController: UIViewController {
                 let button = UIButton()
                 button.setTitle("Second Tap", for: .normal)
                 button.setTitleColor(.black, for: .normal)
-                stackView.translatesAutoresizingMaskIntoConstraints = false
+                stackView.toAutoLayout()
+                button.backgroundColor = .red
                 button.addTarget(self, action: #selector(openPostButton), for: .touchUpInside)
                 return button
             }()
 
-            func setConstraintsForFirstButton(){
-                firstButton.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-                firstButton.bottomAnchor.constraint(equalTo: secondButton.topAnchor, constant: -10).isActive = true
-                firstButton.heightAnchor.constraint(equalToConstant: 10).isActive = true
-            }
-
-            func setConstraintsForSecondButton(){
-                secondButton.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-                secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 10).isActive = true
-                secondButton.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            func setConstraints(){
+                NSLayoutConstraint.activate([
+                    firstButton.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+                    firstButton.bottomAnchor.constraint(equalTo: secondButton.topAnchor, constant: -10),
+                    firstButton.heightAnchor.constraint(equalToConstant: 10),
+                    secondButton.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+                    secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 10),
+                    secondButton.heightAnchor.constraint(equalToConstant: 10)
+                ])
             }
 
             stackView.addArrangedSubview(firstButton)
             stackView.addArrangedSubview(secondButton)
 
-            setConstraintsForFirstButton()
-            setConstraintsForSecondButton()
+            setConstraints()
 
             return stackView
         }()
