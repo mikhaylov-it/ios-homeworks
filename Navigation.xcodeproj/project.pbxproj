@@ -86,6 +86,7 @@
 			children = (
 				DD139BD92A28B8D900628550 /* ProfileViewController.swift */,
 				DD453E672A39982400FEC9B1 /* ProfileHeaderView.swift */,
+
 				DD12DB802A44501800BCFDDF /* LogInViewController.swift */,
 			);
 			path = Profile;
@@ -105,7 +106,9 @@
 		DDAE550B2A2DC78600CD02C8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+
 				DD12DB822A45F5DB00BCFDDF /* UIViewExtansion.swift */,
+
 				DD453E662A39935A00FEC9B1 /* Feed */,
 				DD453E652A39934C00FEC9B1 /* Profile */,
 			);
@@ -191,7 +194,9 @@
 				DDAE550F2A2DCAE600CD02C8 /* InfoViewController.swift in Sources */,
 				DDA2C1D22A2F519A00218BA7 /* Post.swift in Sources */,
 				DDAE55032A2B535900CD02C8 /* PostViewController.swift in Sources */,
+
 				DD12DB832A45F5DB00BCFDDF /* UIViewExtansion.swift in Sources */,
+
 				DD453E682A39982400FEC9B1 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

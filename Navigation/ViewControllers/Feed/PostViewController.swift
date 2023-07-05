@@ -14,6 +14,7 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         view.backgroundColor = .white
         title = post?.title
 
@@ -24,6 +25,7 @@ class PostViewController: UIViewController {
         }()
         
         navigationItem.leftBarButtonItem = barButtomItem
+
     }
 
     @objc func openInfoButton(_: UIButton) {

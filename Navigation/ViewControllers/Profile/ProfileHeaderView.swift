@@ -9,15 +9,18 @@ import UIKit
 
 class ProfileHeaderView: UIView {
 
+
     lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         let catAvatarImage = UIImage(named: "cat")
 
         imageView.layer.cornerRadius = 150 / 2
+
         imageView.clipsToBounds = true
 
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+
 
         imageView.image = catAvatarImage
         imageView.toAutoLayout()
@@ -44,6 +47,7 @@ class ProfileHeaderView: UIView {
         return status
     }()
 
+
     lazy var statusTextField: UITextField = {
         let field = UITextField()
         field.placeholder = "Whats up?"
@@ -64,12 +68,14 @@ class ProfileHeaderView: UIView {
         button.setTitle("Set status", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 40 / 4
+
         button.layer.shadowOffset = CGSize(width: 5, height: 5)
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.8
         button.layer.shadowRadius = 3
 
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+
         button.toAutoLayout()
 
         return button
@@ -90,6 +96,7 @@ class ProfileHeaderView: UIView {
     }
 
     @objc func buttonPressed() {
+
         statusLabel.text = statusText
 
     }
@@ -98,6 +105,7 @@ class ProfileHeaderView: UIView {
         statusText = statusTextField.text!
 
     }
+
 
     private func initViews() {
         addSubviews(avatarImageView,
@@ -136,4 +144,5 @@ class ProfileHeaderView: UIView {
                 setStatusButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
+
 }

@@ -15,6 +15,7 @@ class InfoViewController: UIViewController {
         view.backgroundColor = .white
 
         lazy var alertButton: UIButton = {
+
             let button = UIButton()
             button.frame = CGRect(x: 0, y: 40, width: 380, height: 40)
             button.backgroundColor = .systemRed
@@ -24,6 +25,7 @@ class InfoViewController: UIViewController {
 
             return button
         }()
+
 
         view.addSubview(alertButton)
 

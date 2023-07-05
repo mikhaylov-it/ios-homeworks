@@ -8,6 +8,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    let profileHeaderView = ProfileHeaderView()
 
     private let profileHeaderView = ProfileHeaderView()
 
@@ -22,6 +23,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         view.backgroundColor = .white
         view.addSubviews(profileHeaderView, somethingBottomButton)
@@ -42,6 +44,7 @@ class ProfileViewController: UIViewController {
             somethingBottomButton.rightAnchor.constraint(equalTo: view.rightAnchor),
             somethingBottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+
     }
 
 
