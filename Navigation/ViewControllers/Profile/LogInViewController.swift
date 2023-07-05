@@ -9,6 +9,23 @@ import UIKit
 
 class LogInViewController: UIViewController {
 
+    private let profileViewController = ProfileViewController()
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.toAutoLayout()
+
+        return scrollView
+    }()
+
+    private var contentView: UIView = {
+        let contentView = UIView()
+        contentView.toAutoLayout()
+
+        return contentView
+    }()
+
     private lazy var logoImageView: UIImageView = {
         let logoImageView = UIImageView()
         let image = UIImage(named: "logo")
@@ -26,6 +43,7 @@ class LogInViewController: UIViewController {
         authStackView.layer.borderColor = UIColor.lightGray.cgColor
         authStackView.layer.borderWidth = 0.5
         authStackView.layer.cornerRadius = 10
+        authStackView.clipsToBounds = true
         authStackView.toAutoLayout()
 
         return authStackView
@@ -40,6 +58,9 @@ class LogInViewController: UIViewController {
         emailTextField.tintColor = UIColor(named: "accentColor")
         emailTextField.placeholder = "Email or phone"
         emailTextField.autocapitalizationType = .none
+        emailTextField.returnKeyType = UIReturnKeyType.done
+        emailTextField.clearButtonMode = UITextField.ViewMode.whileEditing
+        emailTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         emailTextField.layer.borderColor = UIColor.lightGray.cgColor
         emailTextField.layer.borderWidth = 0.25
         emailTextField.toAutoLayout()
@@ -57,6 +78,10 @@ class LogInViewController: UIViewController {
         passTextField.autocapitalizationType = .none
         passTextField.isSecureTextEntry = true
         passTextField.placeholder = "Password"
+        passTextField.autocapitalizationType = .none
+        passTextField.returnKeyType = UIReturnKeyType.done
+        passTextField.clearButtonMode = UITextField.ViewMode.whileEditing
+        passTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         passTextField.layer.borderColor = UIColor.lightGray.cgColor
         passTextField.layer.borderWidth = 0.25
         passTextField.toAutoLayout()
@@ -81,10 +106,14 @@ class LogInViewController: UIViewController {
             logInButton.alpha = 1
 
         }
+
         logInButton.setTitle("LogIn", for: .normal)
         logInButton.tintColor = .white
-        logInButton.layer.cornerRadius = 1
+        logInButton.layer.cornerRadius = 10
+        logInButton.clipsToBounds = true
+
         logInButton.toAutoLayout()
+        logInButton.actions(forTarget: self, forControlEvent: .touchUpInside)
 
         return logInButton
     }()
@@ -93,21 +122,82 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        view.addSubviews(logoImageView, authStackView, logInButton)
-        setConstraints()
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubviews(logoImageView, authStackView, logInButton)
 
+        setConstraints()
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupKeyboardObservers()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        setupKeyboardObservers()
+    }
+
+    @objc func openProfileViewController() {
+        self.present(profileViewController, animated: true, completion: nil)
+    }
+
+    @objc func willShowKeyboard(_ notification: NSNotification) {
+            let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+            scrollView.contentInset.bottom += keyboardHeight ?? 0.0
+        }
+
+    @objc func willHideKeyboard(_ notification: NSNotification) {
+            scrollView.contentInset.bottom = 0.0
+        }
+
+    private func setupKeyboardObservers() {
+            let notificationCenter = NotificationCenter.default
+
+            notificationCenter.addObserver(
+                self,
+                selector: #selector(self.willShowKeyboard(_:)),
+                name: UIResponder.keyboardWillShowNotification,
+                object: nil
+            )
+
+            notificationCenter.addObserver(
+                self,
+                selector: #selector(self.willHideKeyboard(_:)),
+                name: UIResponder.keyboardWillHideNotification,
+                object: nil
+            )
+        }
+
+        private func removeKeyboardObservers() {
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.removeObserver(self)
+        }
+
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+
+            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+
+            logoImageView.topAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 120),
             logoImageView.widthAnchor.constraint(equalToConstant: 100),
             logoImageView.heightAnchor.constraint(equalToConstant: 100),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
 
-            authStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            authStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            authStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            authStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             authStackView.heightAnchor.constraint(equalToConstant: 100),
             authStackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120),
 
