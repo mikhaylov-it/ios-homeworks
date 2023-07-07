@@ -15,10 +15,8 @@ class ProfileHeaderView: UIView {
 
         imageView.layer.cornerRadius = 150 / 2
         imageView.clipsToBounds = true
-
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-
         imageView.image = catAvatarImage
         imageView.toAutoLayout()
 
@@ -64,6 +62,7 @@ class ProfileHeaderView: UIView {
         button.setTitle("Set status", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 40 / 4
+
         button.layer.shadowOffset = CGSize(width: 5, height: 5)
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.8

@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var tabBarViewController = UITabBarController()
     var feedViewController = FeedViewController()
-    var profileViewController = ProfileViewController()
     var logInViewController = LogInViewController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -30,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarViewController.tabBar.backgroundColor = UIColor(named: "nav_bar")
 
         let controllers = [feedViewController, logInViewController]
+
         tabBarViewController.viewControllers = controllers.map {
             UINavigationController(rootViewController: $0)
         }

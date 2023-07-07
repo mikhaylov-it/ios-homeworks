@@ -60,10 +60,8 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
         view.addSubviews(postView, titleOfPost, someStackView)
         setConstraints()
-
         postViewController.post = post
 
     }

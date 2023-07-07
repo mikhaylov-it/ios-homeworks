@@ -13,7 +13,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-
+      
         lazy var alertButton: UIButton = {
             let button = UIButton()
             button.frame = CGRect(x: 0, y: 40, width: 380, height: 40)
