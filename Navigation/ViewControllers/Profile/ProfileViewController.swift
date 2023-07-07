@@ -8,22 +8,41 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    let profileHeaderView = ProfileHeaderView()
 
+    private let profileHeaderView = ProfileHeaderView()
+
+    private lazy var somethingBottomButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Tap me", for: .normal)
+        button.backgroundColor = .red
+        button.toAutoLayout()
+
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-        let views: [UIView] = [profileHeaderView.profileImageView, profileHeaderView.profileName, profileHeaderView.statusLabel, profileHeaderView.statusButton, profileHeaderView.statusTextField]
-        for subView in views {
-            view.addSubview(subView)
-        }
-    }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+        view.backgroundColor = .white
+        view.addSubviews(profileHeaderView, somethingBottomButton)
+        setConstraints()
+
 
         profileHeaderView.frame = view.frame
-        
+    }
+
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            profileHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            profileHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            profileHeaderView.topAnchor.constraint(equalTo: view.topAnchor),
+            profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
+
+            somethingBottomButton.leftAnchor.constraint(equalTo: view.leftAnchor),
+            somethingBottomButton.rightAnchor.constraint(equalTo: view.rightAnchor),
+            somethingBottomButton.topAnchor.constraint(equalTo: profileHeaderView.bottomAnchor),
+            somethingBottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 
 

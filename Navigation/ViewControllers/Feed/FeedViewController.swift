@@ -11,49 +11,87 @@ class FeedViewController: UIViewController {
     let post = Post(title: "Title of Post")
     let postViewController = PostViewController()
 
+    private lazy var postView: UIView = {
+        let post = UIView()
+        post.layer.backgroundColor = UIColor.white.cgColor
+        post.layer.borderWidth = 2
+        post.toAutoLayout()
+        return post
+    }()
+
+    private lazy var titleOfPost: UILabel = {
+        let titleOfPost = UILabel()
+        titleOfPost.text = post.title
+        titleOfPost.toAutoLayout()
+        return titleOfPost
+    }()
+
+    private lazy var someStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.toAutoLayout()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.backgroundColor = .yellow
+        stackView.addArrangedSubview(firstButton)
+        stackView.addArrangedSubview(secondButton)
+        return stackView
+    }()
+
+    private lazy var firstButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("First Tap", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .green
+        button.toAutoLayout()
+        button.addTarget(self, action: #selector(openPostButton), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var secondButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Second Tap", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .red
+        button.toAutoLayout()
+        button.addTarget(self, action: #selector(openPostButton), for: .touchUpInside)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-
-        var postView: UIView {
-            let post = UIView()
-            post.frame = CGRect(x: 20, y: 50, width: 330, height: 100)
-            post.layer.backgroundColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-            post.layer.borderWidth = 2
-
-            return post
-        }
-
-        var titleOfPost: UILabel {
-            let titleOfPost = UILabel()
-            titleOfPost.text = post.title
-            titleOfPost.frame = CGRect(x: 40, y: 30, width: 200, height: 100)
-
-            return titleOfPost
-        }
-
-        var transitionToPostButton: UIButton {
-            let button = UIButton()
-            button.frame = CGRect(x: 20, y: 50, width: 330, height: 100)
-            button.setTitleColor(.white, for: .normal)
-            button.addTarget(
-                self,
-                action: #selector(openPostButton(_: )),
-                for: .touchUpInside)
-
-            return button
-        }
-        view.addSubview(postView)
-        view.addSubview(titleOfPost)
-        view.addSubview(transitionToPostButton)
+        view.backgroundColor = .white
+        view.addSubviews(postView, titleOfPost, someStackView)
+        setConstraints()
         postViewController.post = post
 
     }
+
+
+
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            someStackView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            someStackView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            someStackView.heightAnchor.constraint(equalToConstant: 200),
+            someStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+
+            postView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            postView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            postView.heightAnchor.constraint(equalToConstant: 200),
+            postView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+
+            titleOfPost.topAnchor.constraint(equalTo: postView.topAnchor),
+            titleOfPost.centerXAnchor.constraint(equalTo: postView.centerXAnchor)
+
+        ])
+    }
+
     @objc func openPostButton(_: UIButton) {
         navigationController?.pushViewController(
             postViewController,
             animated: true)
     }
+
 
 }
 

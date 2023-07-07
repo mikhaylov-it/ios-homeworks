@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD12DB812A44501800BCFDDF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12DB802A44501800BCFDDF /* LogInViewController.swift */; };
+		DD12DB832A45F5DB00BCFDDF /* UIViewExtansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12DB822A45F5DB00BCFDDF /* UIViewExtansion.swift */; };
 		DD139BD62A28B8D900628550 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD139BD52A28B8D900628550 /* AppDelegate.swift */; };
 		DD139BD82A28B8D900628550 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD139BD72A28B8D900628550 /* SceneDelegate.swift */; };
 		DD139BDA2A28B8D900628550 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD139BD92A28B8D900628550 /* ProfileViewController.swift */; };
@@ -18,9 +20,12 @@
 		DDAE55012A2B413200CD02C8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE55002A2B413200CD02C8 /* FeedViewController.swift */; };
 		DDAE55032A2B535900CD02C8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE55022A2B535900CD02C8 /* PostViewController.swift */; };
 		DDAE550F2A2DCAE600CD02C8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE550E2A2DCAE600CD02C8 /* InfoViewController.swift */; };
+		DDD9F7502A57E6570017DACB /* LoginViewControllerExtansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD9F74F2A57E6570017DACB /* LoginViewControllerExtansion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD12DB802A44501800BCFDDF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		DD12DB822A45F5DB00BCFDDF /* UIViewExtansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtansion.swift; sourceTree = "<group>"; };
 		DD139BD22A28B8D900628550 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD139BD52A28B8D900628550 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD139BD72A28B8D900628550 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		DDAE55002A2B413200CD02C8 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		DDAE55022A2B535900CD02C8 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		DDAE550E2A2DCAE600CD02C8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		DDD9F74F2A57E6570017DACB /* LoginViewControllerExtansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerExtansion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,9 @@
 			children = (
 				DD139BD92A28B8D900628550 /* ProfileViewController.swift */,
 				DD453E672A39982400FEC9B1 /* ProfileHeaderView.swift */,
+
+				DD12DB802A44501800BCFDDF /* LogInViewController.swift */,
+
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -100,6 +109,10 @@
 		DDAE550B2A2DC78600CD02C8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+
+				DD12DB822A45F5DB00BCFDDF /* UIViewExtansion.swift */,
+				DDD9F74F2A57E6570017DACB /* LoginViewControllerExtansion.swift */,
+
 				DD453E662A39935A00FEC9B1 /* Feed */,
 				DD453E652A39934C00FEC9B1 /* Profile */,
 			);
@@ -179,11 +192,15 @@
 			files = (
 				DD139BDA2A28B8D900628550 /* ProfileViewController.swift in Sources */,
 				DD139BD62A28B8D900628550 /* AppDelegate.swift in Sources */,
+				DD12DB812A44501800BCFDDF /* LogInViewController.swift in Sources */,
 				DDAE55012A2B413200CD02C8 /* FeedViewController.swift in Sources */,
 				DD139BD82A28B8D900628550 /* SceneDelegate.swift in Sources */,
 				DDAE550F2A2DCAE600CD02C8 /* InfoViewController.swift in Sources */,
 				DDA2C1D22A2F519A00218BA7 /* Post.swift in Sources */,
+				DDD9F7502A57E6570017DACB /* LoginViewControllerExtansion.swift in Sources */,
 				DDAE55032A2B535900CD02C8 /* PostViewController.swift in Sources */,
+				DD12DB832A45F5DB00BCFDDF /* UIViewExtansion.swift in Sources */,
+
 				DD453E682A39982400FEC9B1 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +347,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,7 +375,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

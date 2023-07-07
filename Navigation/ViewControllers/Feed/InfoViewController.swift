@@ -12,9 +12,9 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-
-        var alertButton: UIButton {
+        view.backgroundColor = .white
+      
+        lazy var alertButton: UIButton = {
             let button = UIButton()
             button.frame = CGRect(x: 0, y: 40, width: 380, height: 40)
             button.backgroundColor = .systemRed
@@ -23,7 +23,7 @@ class InfoViewController: UIViewController {
             button.addTarget(self, action: #selector(showAlert(_:)), for: .touchUpInside)
 
             return button
-        }
+        }()
 
         view.addSubview(alertButton)
 
