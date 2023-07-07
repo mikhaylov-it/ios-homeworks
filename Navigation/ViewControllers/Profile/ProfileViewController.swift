@@ -40,6 +40,7 @@ class ProfileViewController: UIViewController {
 
             somethingBottomButton.leftAnchor.constraint(equalTo: view.leftAnchor),
             somethingBottomButton.rightAnchor.constraint(equalTo: view.rightAnchor),
+            somethingBottomButton.topAnchor.constraint(equalTo: profileHeaderView.bottomAnchor),
             somethingBottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }

@@ -58,12 +58,15 @@ class LogInViewController: UIViewController {
         emailTextField.tintColor = UIColor(named: "accentColor")
         emailTextField.placeholder = "Email or phone"
         emailTextField.autocapitalizationType = .none
+        emailTextField.keyboardType = UIKeyboardType.default
         emailTextField.returnKeyType = UIReturnKeyType.done
         emailTextField.clearButtonMode = UITextField.ViewMode.whileEditing
         emailTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         emailTextField.layer.borderColor = UIColor.lightGray.cgColor
         emailTextField.layer.borderWidth = 0.25
         emailTextField.toAutoLayout()
+
+        emailTextField.delegate = self
 
         return emailTextField
     }()
@@ -79,6 +82,7 @@ class LogInViewController: UIViewController {
         passTextField.isSecureTextEntry = true
         passTextField.placeholder = "Password"
         passTextField.autocapitalizationType = .none
+        passTextField.keyboardType = UIKeyboardType.default
         passTextField.returnKeyType = UIReturnKeyType.done
         passTextField.clearButtonMode = UITextField.ViewMode.whileEditing
         passTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
@@ -86,12 +90,22 @@ class LogInViewController: UIViewController {
         passTextField.layer.borderWidth = 0.25
         passTextField.toAutoLayout()
 
+        passTextField.delegate = self
+
 
         return passTextField
     }()
 
     private lazy var logInButton: UIButton = {
         let logInButton = UIButton()
+
+        logInButton.setTitle("LogIn", for: .normal)
+        logInButton.tintColor = .white
+        logInButton.layer.cornerRadius = 10
+        logInButton.clipsToBounds = true
+
+        logInButton.toAutoLayout()
+        logInButton.addTarget(self, action: #selector(openProfileViewController), for: .touchUpInside)
 
         switch logInButton.state {
 
@@ -106,14 +120,6 @@ class LogInViewController: UIViewController {
             logInButton.alpha = 1
 
         }
-
-        logInButton.setTitle("LogIn", for: .normal)
-        logInButton.tintColor = .white
-        logInButton.layer.cornerRadius = 10
-        logInButton.clipsToBounds = true
-
-        logInButton.toAutoLayout()
-        logInButton.actions(forTarget: self, forControlEvent: .touchUpInside)
 
         return logInButton
     }()
@@ -134,21 +140,22 @@ class LogInViewController: UIViewController {
         super.viewWillAppear(animated)
 
         setupKeyboardObservers()
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        setupKeyboardObservers()
+        removeKeyboardObservers()
     }
 
     @objc func openProfileViewController() {
-        self.present(profileViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(profileViewController, animated: true)
     }
 
     @objc func willShowKeyboard(_ notification: NSNotification) {
             let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
-            scrollView.contentInset.bottom += keyboardHeight ?? 0.0
+        scrollView.contentInset.bottom += keyboardHeight ?? 0.0
         }
 
     @objc func willHideKeyboard(_ notification: NSNotification) {
@@ -187,9 +194,9 @@ class LogInViewController: UIViewController {
 
             contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.topAnchor.constraint(equalTo: view.topAnchor),
 
             logoImageView.topAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 120),
             logoImageView.widthAnchor.constraint(equalToConstant: 100),
@@ -209,6 +216,7 @@ class LogInViewController: UIViewController {
             passTextField.widthAnchor.constraint(equalTo: authStackView.widthAnchor),
             passTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
             passTextField.bottomAnchor.constraint(equalTo: authStackView.bottomAnchor),
+            passTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
 
             logInButton.topAnchor.constraint(equalTo: authStackView.bottomAnchor, constant: 16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
